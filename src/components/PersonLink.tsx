@@ -52,6 +52,7 @@ const PersonLink: React.FC<Props> = ({
             {motherSlug ? (
               <Link
                 to={`/people/${motherSlug?.slug}`}
+                replace
                 className={'has-text-danger'}
               >
                 {person.motherName}
@@ -69,7 +70,7 @@ const PersonLink: React.FC<Props> = ({
         {person.fatherName ? (
           <>
             {fatherSlug ? (
-              <Link to={`/people/${fatherSlug?.slug}`}>
+              <Link to={`/people/${fatherSlug?.slug}`} replace>
                 {person.fatherName}
               </Link>
             ) : (
