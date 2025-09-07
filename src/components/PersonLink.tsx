@@ -50,7 +50,10 @@ const PersonLink: React.FC<Props> = ({
         {person.motherName ? (
           <>
             {motherSlug ? (
-              <Link to={motherSlug?.slug} className={'has-text-danger'}>
+              <Link
+                to={`/people/${motherSlug?.slug}`}
+                className={'has-text-danger'}
+              >
                 {person.motherName}
               </Link>
             ) : (
@@ -66,7 +69,9 @@ const PersonLink: React.FC<Props> = ({
         {person.fatherName ? (
           <>
             {fatherSlug ? (
-              <Link to={fatherSlug?.slug}>{person.fatherName}</Link>
+              <Link to={`/people/${fatherSlug?.slug}`}>
+                {person.fatherName}
+              </Link>
             ) : (
               <>{person.fatherName}</>
             )}
