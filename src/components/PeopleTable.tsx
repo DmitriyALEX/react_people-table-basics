@@ -10,13 +10,13 @@ type Props = {
 const PeopleTable: React.FC<Props> = ({ people }) => {
   const location = useLocation();
 
-  const checkMotherArray = people?.filter(person => {
-    return people?.some(p => person.name === p.motherName);
-  });
+  // const checkMotherArray = people?.filter(person => {
+  //   return people?.some(p => person.name === p.motherName);
+  // });
 
-  const checkFatherArray = people?.filter(person => {
-    return people?.some(p => person.name === p.fatherName);
-  });
+  // const checkFatherArray = people?.filter(person => {
+  //   return people?.some(p => person.name === p.fatherName);
+  // });
 
   return (
     <table
@@ -38,13 +38,17 @@ const PeopleTable: React.FC<Props> = ({ people }) => {
         {people.map(person => {
           const isActive = location.pathname === `/people/${person.slug}`;
 
-          const motherSlug = checkMotherArray?.find(
-            mother => mother.name === person.motherName,
-          );
+          // const motherSlug = checkMotherArray?.find(
+          //   mother => mother.name === person.motherName,
+          // );
 
-          const fatherSlug = checkFatherArray?.find(
-            father => father.name === person.fatherName,
-          );
+          // const fatherSlug = checkFatherArray?.find(
+          //   father => father.name === person.fatherName,
+          // );
+
+          const mother = people?.find(p => p.name === person.motherName);
+
+          const father = people?.find(f => f.name === person.fatherName);
 
           return (
             <tr
@@ -62,10 +66,10 @@ const PeopleTable: React.FC<Props> = ({ people }) => {
               <td>{person.born}</td>
               <td>{person.died}</td>
               <td>
-                <PersonLink person={motherSlug} />
+                <PersonLink person={mother} name={person.motherName} />
               </td>
               <td>
-                <PersonLink person={fatherSlug} />
+                <PersonLink person={father} name={person.fatherName} />
               </td>
             </tr>
           );
