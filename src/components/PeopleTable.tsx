@@ -10,14 +10,6 @@ type Props = {
 const PeopleTable: React.FC<Props> = ({ people }) => {
   const location = useLocation();
 
-  // const checkMotherArray = people?.filter(person => {
-  //   return people?.some(p => person.name === p.motherName);
-  // });
-
-  // const checkFatherArray = people?.filter(person => {
-  //   return people?.some(p => person.name === p.fatherName);
-  // });
-
   return (
     <table
       data-cy="peopleTable"
